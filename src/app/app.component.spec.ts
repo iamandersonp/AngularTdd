@@ -5,12 +5,8 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent]
     }).compileComponents();
   });
 
@@ -19,17 +15,27 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  it(`should have as title 'AngularTdd'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('AngularTdd');
+  // Test equal in a var
+  it('myVar should be equal to Hola Mundo', () => {
+    const appComponent = new AppComponent();
+    const valor = appComponent.myVar;
+    expect(valor).toEqual('Hola Mundo');
   });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('AngularTdd app is running!');
+  // Test if a var contains a value
+  it('nombre should contain Jhon', () => {
+    const appComponent = new AppComponent();
+    const valor = appComponent.nombre;
+    expect(valor).toContain('Jhon');
+  });
+  // test Booleans
+  it('it should be Par', () => {
+    const appComponent = new AppComponent();
+    const valor = appComponent.par(44);
+    expect(valor).toBeTruthy();
+  });
+  it('it should be Inpar', () => {
+    const appComponent = new AppComponent();
+    const valor = appComponent.par(41);
+    expect(valor).toBeFalsy();
   });
 });

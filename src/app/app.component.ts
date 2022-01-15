@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularTdd';
+  myVar = 'Hola Mundo';
+  nombre = 'Jhon Doe';
+
+  par(num: number): boolean {
+    return num % 2 === 0 ? true : false;
+  }
 }
